@@ -6,8 +6,7 @@ returns the closest previously inserted word by value and by lexical order
 To run:
 
 ```
-mvn org.codehaus.mojo:exec-maven-plugin:exec -Dexec.executable=java \
-	-Dexec.args="-cp %classpath io.vertx.core.Launcher run server.Server"
+mvn org.codehaus.mojo:exec-maven-plugin:exec -Dexec.executable=java -Dexec.args="-cp %classpath io.vertx.core.Launcher run server.Server"
 ```
 
 To test:
