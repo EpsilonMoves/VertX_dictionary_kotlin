@@ -34,9 +34,8 @@ class Server : AbstractVerticle(){
         router = Router.router(vertx)
         router.post(PATH_ANALYZE).handler(BodyHandler.create())
         router.post(PATH_ANALYZE).handler { routingContext ->
-            val inputWord: String?
             try {
-                inputWord = routingContext.bodyAsJson.getString(INPUT_KEY_TEXT)
+                val inputWord = routingContext.bodyAsJson.getString(INPUT_KEY_TEXT)
             if (inputWord.assertInput()) {// input is valid
                 eb.send<Any>(WORDS_CONSUMER, inputWord.toString()) { res ->
                     if (res.succeeded()) {
